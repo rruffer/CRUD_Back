@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15155152037940" configfile="/GRUD_Back/src/main/webapp/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15155152037940" configfile="/CRUD_Back/src/main/webapp/WEB-INF/faces-config.xml"/>
