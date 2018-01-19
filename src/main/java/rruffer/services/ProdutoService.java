@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -24,6 +26,9 @@ import rruffer.model.Produto;
 @Produces(MediaType.APPLICATION_JSON)
 public class ProdutoService {
 	
+	@PersistenceContext
+	private EntityManager entityManager;
+	
 	static Integer contador = 1;
 	static List<Produto> produtos = new ArrayList<Produto>();
 	
@@ -42,8 +47,20 @@ public class ProdutoService {
 	
 	@POST
 	public Produto adicionar(Produto produto) {
-		produto.setId(contador++);
-		produtos.add(produto);
+/*		produto.setId(contador++);
+		produtos.add(produto);*/
+		
+		try {
+//			entityManager.getTransaction().begin();
+			entityManager.persist(produto);
+//			entityManager.getTransaction().commit();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+//			entityManager.close();						
+		}
+		
+		
 		
 		
 	
